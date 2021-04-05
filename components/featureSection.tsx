@@ -34,7 +34,7 @@ const FeatureSection: FC<{ invert?: boolean; title: string; body: string; image:
       overflow="hidden"
     >
       <Container height="100%">
-        <Pane display="flex" alignItems="flex-start" justifyContent="space-between">
+        <Pane display="flex" alignItems="center" justifyContent="space-between">
           {children.map((Child, i) => (
             <Pane key={i} width="50%" paddingX={majorScale(3)}>
               <Child />
