@@ -74,14 +74,14 @@ export function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, preview }) {
   let post;
   try {
     const filesPath = path.join(process.cwd(), 'posts', `${params.slug}.mdx` );
     post = fs.readFileSync(filesPath, 'utf-8');
   } catch {// no matching post in /posts
     // get from `CMS`
-    post = postsFromCMS.published.find(post => {
+    post = (preview ? postsFromCMS.draft : postsFromCMS.published).find(post => {
       const { data } = matter(post);
       return data.slug == params.slug;
     });
