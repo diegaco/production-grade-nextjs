@@ -8,6 +8,7 @@ import SocialButton from '../components/socialButton'
 const Signin = () => {
   const [session, loading] = useSession();
   const router = useRouter();
+  console.log(session);
 
   useEffect(() => {
     if (session) {
